@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+    stages {
+        stage('Hello') {
+            steps {
+                echo "Hello world"
+                    }
+            }
+        }
+    post{
+        always{
+            mail to: "suganyamadhan1996@gmail.com",
+            subject: "Test Email",
+            body: "A build has trigger due to git-commit"
+        }
+    }
+}
